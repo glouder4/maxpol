@@ -1,7 +1,7 @@
 // ВАЖНО: Вставьте ID вашей Google Таблицы сюда
 // Чтобы получить ID: откройте вашу таблицу и посмотрите в URL:
 // https://docs.google.com/spreadsheets/d/ИД_ТАБЛИЦЫ/edit
-const SHEET_ID = '10GAtGvG5DlyJbJmqFWete7X_sVk9wyRllvLaBpFr6RQ';
+const SHEET_ID = '';
 
 // Константы для работы с таблицей
 const CONTACTS_SHEET_NAME = 'Логи запросов';
@@ -28,7 +28,7 @@ const DEAL_SELECT_FIELDS = [
 
 // ID поля-контейнера с данными формы (содержит JSON строку)
 const FORM_DATA_FIELD_ID = 'UF_CRM_1761752668447';
-const DEAL_UPDATE_WEBHOOK_URL = 'https://makspol.bitrix24.ru/rest/70/ftuu2b8mansjbt67/crm.deal.update.json';
+const DEAL_UPDATE_WEBHOOK_URL = 'https://makspol.bitrix24.ru/rest/';
 
 // Поля для извлечения из Bitrix24 (названия в custom JSON)
 const BITRIX_FIELDS = {
@@ -47,7 +47,7 @@ const BITRIX_FIELD_IDS = {
 };
 
 // Webhook для обновления контакта
-const UPDATE_WEBHOOK_URL = 'https://makspol.bitrix24.ru/rest/70/wrdao9pzhyah5sqk/crm.contact.update.json';
+const UPDATE_WEBHOOK_URL = 'https://makspol.bitrix24.ru/rest/';
 
 // Маппинг текстовых значений на ID списковых полей
 const LIST_VALUE_MAPPING = {
@@ -361,7 +361,7 @@ function getContactFields(contactId) {
   };
   let checkpoint = logCheckpoint(`Начало получения данных для контакта ${contactId}`);
   try {
-    const url = `https://makspol.bitrix24.ru/rest/70/epldh8oiusdtqtyw/crm.contact.get.json?id=${contactId}`;
+    const url = `https://makspol.bitrix24.ru/rest/70/?id=${contactId}`;
     logToSheet('URL запроса: ' + url);
     
     const response = UrlFetchApp.fetch(url);
@@ -426,7 +426,7 @@ function getContactDeals(contactId) {
 
   try {
     logToSheet(`Запрос сделок для контакта ${contactId}`);
-    const url = 'https://makspol.bitrix24.ru/rest/70/5v7p2zhh5qvef8uw/crm.deal.list.json';
+    const url = 'https://makspol.bitrix24.ru/rest/';
     const payload = {
       filter: {
         CONTACT_ID: contactId
